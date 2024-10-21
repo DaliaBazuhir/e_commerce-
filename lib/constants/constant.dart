@@ -1,3 +1,3 @@
-const url = "https://fakestoreapi.com";
-const product = "/products";
-const category = "/category";
+const kurl = "https://fakestoreapi.com";
+const kproduct = "/products";
+const kcategory = "/category";

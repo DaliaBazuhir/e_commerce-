@@ -1,8 +1,7 @@
-import 'package:e_commerce_app/controllers/userCart.dart';
-import 'package:e_commerce_app/controllers/userFavourites.dart';
+import 'package:e_commerce_app/controllers/user_cart.dart';
+import 'package:e_commerce_app/controllers/user_favourites.dart';
 import 'package:e_commerce_app/views/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_app/controllers/userCart.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -10,7 +9,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserFavourites()),
-        ChangeNotifierProvider(create: (_) => cartProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MyApp(),
     ),

@@ -1,12 +1,12 @@
 
 import 'package:e_commerce_app/views/cart_page.dart';
-import 'package:e_commerce_app/views/product_Info_page.dart';
+import 'package:e_commerce_app/views/product_info_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
-import 'package:e_commerce_app/controllers/userCart.dart';
-import '../models/Product.dart';
-import '../controllers/fetchApi.dart';
+import 'package:e_commerce_app/controllers/user_cart.dart';
+import '../models/product.dart';
+import '../controllers/fetch_api.dart';
 
 import 'favourite_page.dart';
 
@@ -32,7 +32,7 @@ class _HomescreenState extends State<Homescreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading:
-        Consumer<cartProvider>(
+        Consumer<CartProvider>(
           builder: (context,userCart,child){
             return
               IconButton(

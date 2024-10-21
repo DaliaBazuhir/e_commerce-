@@ -1,14 +1,14 @@
-import 'package:e_commerce_app/models/Product.dart';
+import 'package:e_commerce_app/models/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 class UserFavourites with ChangeNotifier{
   List<Product> favouriteProducts = [];
-  void AddToFavList(Product selectedProduct){
+  void addToFavList(Product selectedProduct){
     favouriteProducts.add(selectedProduct);
     notifyListeners();
   }
-  void RemoveToFavList(Product selectedProduct){
+  void removeToFavList(Product selectedProduct){
     favouriteProducts.remove(selectedProduct);
     notifyListeners();
   }

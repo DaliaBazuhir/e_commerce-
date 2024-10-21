@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/controllers/userCart.dart';
-import 'package:e_commerce_app/controllers/userFavourites.dart';
-import 'package:e_commerce_app/models/Product.dart';
+import 'package:e_commerce_app/controllers/user_cart.dart';
+import 'package:e_commerce_app/controllers/user_favourites.dart';
+import 'package:e_commerce_app/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +16,8 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
   var buyNow = false;
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<cartProvider>(context);
-    final provider2 = Provider.of<UserFavourites>(context);
+    final cartProvider = Provider.of<CartProvider>(context);
+    final userFavouriteProvider = Provider.of<UserFavourites>(context);
     return Scaffold(
       appBar: AppBar(title: Text("Product Details"), backgroundColor: Colors.blue.withOpacity(0.5),),
       body: SafeArea(
@@ -52,8 +52,8 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                           onPressed: () {
                             setState(() {
                               isFavourited = !isFavourited;
-                              isFavourited ? provider2.AddToFavList(widget.product) :
-                              provider2.RemoveToFavList(widget.product);
+                              isFavourited ? userFavouriteProvider.addToFavList(widget.product) :
+                              userFavouriteProvider.removeToFavList(widget.product);
                             });
                           }
                       ),
@@ -61,7 +61,7 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                       Expanded(child:  OutlinedButton(
                         onPressed: (){
                           setState(() {
-                            provider.addProductToCart(widget.product);
+                            cartProvider.addProductToCart(widget.product);
                           });
                         },
                         style: OutlinedButton.styleFrom(

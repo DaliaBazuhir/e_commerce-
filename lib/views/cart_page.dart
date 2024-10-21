@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../controllers/userCart.dart';
+import '../controllers/user_cart.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -12,7 +12,7 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<cartProvider>(context);
+    final provider = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("User Cart"),
@@ -27,19 +27,19 @@ class _CartState extends State<Cart> {
               provider.productInCart.length == 0
                   ? Center(child: Text("Cart is Empty.."))
                   : Expanded(
-                child: Consumer<cartProvider>(
-                  builder: (context, cartProvider, child) {
+                child: Consumer<CartProvider>(
+                  builder: (context, CartProvider, child) {
                     return Column(
                       children: [
                         Expanded(
                           child: ListView.builder(
-                            itemCount: provider.productInCart.length,
+                            itemCount: CartProvider.productInCart.length,
                             itemBuilder: (context, index) {
                               final product =
-                              cartProvider.productInCart.keys
+                              CartProvider.productInCart.keys
                                   .toList()[index];
                               final quantity =
-                              cartProvider.productInCart[product]!;
+                              CartProvider.productInCart[product]!;
                               return Dismissible(
                                 background: Container(
                                   color: Colors.red,
@@ -54,7 +54,7 @@ class _CartState extends State<Cart> {
                                 onDismissed:
                                     (DismissDirection direction) {
                                   setState(() {
-                                    provider.DeleteProductAtAll(product);
+                                    provider.deleteProductAtAll(product);
                                   });
                                 },
                                 child: Padding(
@@ -95,7 +95,7 @@ class _CartState extends State<Cart> {
                                             IconButton(
                                               onPressed: () {
                                                 provider
-                                                    .RemoveProductFromCart(
+                                                    .removeProductFromCart(
                                                     product);
                                               },
                                               icon: Icon(

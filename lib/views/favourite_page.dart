@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/controllers/userFavourites.dart';
-import 'package:e_commerce_app/models/Product.dart';
+import 'package:e_commerce_app/controllers/user_favourites.dart';
+import 'package:e_commerce_app/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -42,7 +42,7 @@ class _FavouritePageState extends State<FavouritePage> {
                                   key: Key(product.id.toString()),
                                   onDismissed:   (DismissDirection direction) {
                                     setState(() {
-                                      UserFavourites.RemoveToFavList(product);
+                                      UserFavourites.removeToFavList(product);
                                     });
                                   },
                                   child: Card(
@@ -59,7 +59,7 @@ class _FavouritePageState extends State<FavouritePage> {
                                             setState(() {
                                               isFav = false;
                                               if(!isFav){
-                                                UserFavourites.RemoveToFavList(product);
+                                                UserFavourites.removeToFavList(product);
                                               }
                                             });
                                           },

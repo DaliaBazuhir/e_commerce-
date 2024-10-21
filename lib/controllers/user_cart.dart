@@ -1,7 +1,7 @@
 
-import 'package:e_commerce_app/models/Product.dart';
+import 'package:e_commerce_app/models/product.dart';
 import 'package:flutter/material.dart';
-class cartProvider with ChangeNotifier{
+class CartProvider with ChangeNotifier{
   Map<Product,int> productInCart = {};
   void addProductToCart(Product selectedProduct){
     if(!productInCart.containsKey(selectedProduct)){
@@ -11,7 +11,7 @@ class cartProvider with ChangeNotifier{
     }
     notifyListeners();
   }
-  void RemoveProductFromCart(Product selectedProduct){
+  void removeProductFromCart(Product selectedProduct){
     if (productInCart.containsKey(selectedProduct) && productInCart[selectedProduct]! > 1) {
       productInCart[selectedProduct] = productInCart[selectedProduct]! - 1;
     } else {
@@ -19,7 +19,7 @@ class cartProvider with ChangeNotifier{
     }
     notifyListeners();
   }
-  void DeleteProductAtAll(Product selectedProduct){
+  void deleteProductAtAll(Product selectedProduct){
     productInCart.remove(selectedProduct);
     notifyListeners();
   }
